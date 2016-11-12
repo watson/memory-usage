@@ -1,0 +1,31 @@
+{
+  "name": "memory-usage",
+  "version": "0.0.0",
+  "description": "Sample memory usage for your Node.js program and write the samples to a stream",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "standard": "^8.5.0",
+    "tape": "^4.6.2"
+  },
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "keywords": [
+    "mem",
+    "memory",
+    "usage",
+    "sample",
+    "log"
+  ],
+  "author": "Thomas Watson Steen <w@tson.dk> (https://twitter.com/wa7son)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watson/memory-usage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/watson/memory-usage/issues"
+  },
+  "homepage": "https://github.com/watson/memory-usage#readme"
+}
