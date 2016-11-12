@@ -1,9 +1,11 @@
 {
   "name": "memory-usage",
   "version": "0.0.0",
-  "description": "Sample memory usage for your Node.js program and write the samples to a stream",
+  "description": "A readable stream that samples and emits memory usage over time",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "from2": "^2.3.0"
+  },
   "devDependencies": {
     "standard": "^8.5.0",
     "tape": "^4.6.2"
