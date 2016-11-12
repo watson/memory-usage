@@ -1,6 +1,6 @@
 {
   "name": "memory-usage",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A readable stream that samples and emits memory usage over time",
   "main": "index.js",
   "dependencies": {
@@ -29,5 +29,9 @@
   "bugs": {
     "url": "https://github.com/watson/memory-usage/issues"
   },
-  "homepage": "https://github.com/watson/memory-usage#readme"
+  "homepage": "https://github.com/watson/memory-usage#readme",
+  "coordinates": [
+    35.6718056,
+    139.737521
+  ]
 }
