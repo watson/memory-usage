@@ -31,6 +31,9 @@ Note that you application of course have to do some actual work. If you
 just run the example above as is, the node process will simply exit
 after creating an empty file.
 
+If you want to chart the memory usage, I recommend combining this module
+with [chart-csv](https://github.com/watson/chart-csv).
+
 ## API
 
 ### `stream = memoryUsage([freq])`
