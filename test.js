@@ -20,6 +20,7 @@ test('basic', function (t) {
     t.ok(obj.rss)
     t.ok(obj.heapTotal)
     t.ok(obj.heapUsed)
+    t.ok(obj.ts)
     clearTimeout(dummy)
     t.end()
   })

@@ -7,7 +7,9 @@ module.exports = memoryUsage
 function memoryUsage (freq) {
   return from.obj(function (size, next) {
     setTimeout(function () {
-      next(null, process.memoryUsage())
+      var obj = process.memoryUsage()
+      obj.ts = Date.now()
+      next(null, obj)
     }, freq || 5000).unref()
   })
 }

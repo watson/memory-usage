@@ -45,15 +45,12 @@ The stream emits JavaScript objects of the following type:
 
 ```js
 {
-  rss: 4935680,
-  heapTotal: 1826816,
-  heapUsed: 650472
+  rss: 4935680,       // Resident set size: Memory assigned to the process in bytes
+  heapTotal: 1826816, // V8 heap memory allocated in bytes
+  heapUsed: 650472,   // V8 heap memory used in bytes
+  ts: 1479179912921   // UNIX epoch timestamp for sample in milliseconds
 }
 ```
-
-See
-[`process.memoryUsage()`](https://nodejs.org/api/process.html#process_process_memoryusage)
-for details of the format.
 
 ## License
 
