@@ -4,7 +4,8 @@
   "description": "A readable stream that samples and emits memory usage over time",
   "main": "index.js",
   "dependencies": {
-    "from2": "^2.3.0"
+    "from2": "^2.3.0",
+    "gc-profiler": "^1.3.1"
   },
   "devDependencies": {
     "standard": "^8.5.0",

@@ -41,16 +41,27 @@ with [chart-csv](https://github.com/watson/chart-csv).
 Will start sampling memory usage every `freq` milliseconds (defaults to
 `5000`) as soon as the stream is flowing.
 
-The stream emits JavaScript objects of the following type:
+The stream emits samples in the form of JavaScript objects:
 
 ```js
 {
   rss: 4935680,       // Resident set size: Memory assigned to the process in bytes
   heapTotal: 1826816, // V8 heap memory allocated in bytes
   heapUsed: 650472,   // V8 heap memory used in bytes
-  ts: 1479179912921   // UNIX epoch timestamp for sample in milliseconds
+  ts: 1479179912921,  // UNIX epoch timestamp for sample in milliseconds
+  gc: null            // Indicates if sample was taken after a garbage collection run
 }
 ```
+
+If the `gc` property is `null`, it means that the sample wasn't taken
+after a garbage collection run. If the value is a string, it will
+indicate the type of garbage collection run. Currently, the values can
+be either `Scavenge` or `MarkSweepCompact`.
+
+Note that samples indicating a garbage collection run might be a few
+hundred milliseconds delayed. This means that you might see a regular
+timed sample appear prior in the stream with reduced memory usage, even
+though there's no official indication of a garbage collection run yet.
 
 ## License
 
