@@ -4,6 +4,9 @@ A readable stream that samples and emits memory usage over time.
 
 You can for instance use the output to graph your memory usage.
 
+Can also be used from the command line to chart the memory usage of a
+Node.js app directly in a web browser.
+
 [![Build status](https://travis-ci.org/watson/memory-usage.svg?branch=master)](https://travis-ci.org/watson/memory-usage)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
