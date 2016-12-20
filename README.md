@@ -36,10 +36,18 @@ with [chart-csv](https://github.com/watson/chart-csv).
 
 ## API
 
-### `stream = memoryUsage([freq])`
+### `stream = memoryUsage([freq|options])`
 
 Will start sampling memory usage every `freq` milliseconds (defaults to
 `5000`) as soon as the stream is flowing.
+
+The optional `options` object expects the following properties:
+
+- `freq` - The sampling frequency in milliseconds (defaults to `5000`)
+- `ts` - A boolean specifying if a timestamp should be outputtet along
+  with the memory samples (defaults to `false`)
+- `gc` - A boolean specifying if garbage collection should be profiled
+  and logged along with the memory samples (defaults to `false`)
 
 The stream emits samples in the form of JavaScript objects:
 
@@ -48,8 +56,8 @@ The stream emits samples in the form of JavaScript objects:
   rss: 4935680,       // Resident set size: Memory assigned to the process in bytes
   heapTotal: 1826816, // V8 heap memory allocated in bytes
   heapUsed: 650472,   // V8 heap memory used in bytes
-  ts: 1479179912921,  // UNIX epoch timestamp for sample in milliseconds
-  gc: null            // Indicates if sample was taken after a garbage collection run
+  ts: 1479179912921,  // UNIX epoch timestamp for sample in milliseconds (only present if `optsions.ts` is `true`)
+  gc: null            // Indicates if sample was taken after a garbage collection run (only present if `options.gc` is `true`)
 }
 ```
 

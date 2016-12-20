@@ -1,14 +1,16 @@
 'use strict'
 
 var from = require('from2')
-var profiler = require('gc-profiler')
 
 module.exports = memoryUsage
 
-function memoryUsage (freq) {
+function memoryUsage (opts) {
+  if (!opts) return memoryUsage({})
+  else if (Number.isFinite(opts)) return memoryUsage({freq: opts})
+  else if (!opts.freq) opts.freq = 5000
+
   var gcSample = null
   var lastScheduledSample = 0
-  freq = freq || 5000
 
   var stream = from.obj(function (size, next) {
     if (gcSample) {
@@ -16,23 +18,28 @@ function memoryUsage (freq) {
       gcSample = null // set to null before calling next
       next(null, result)
     } else {
-      var ms = freq - (Date.now() - lastScheduledSample)
+      var ms = opts.freq - (Date.now() - lastScheduledSample)
       setTimeout(function () {
         var obj = process.memoryUsage()
-        obj.ts = lastScheduledSample = Date.now()
-        obj.gc = null
+        lastScheduledSample = Date.now()
+        if (opts.ts) obj.ts = lastScheduledSample
+        if (opts.gc) obj.gc = null
         next(null, obj)
       }, ms).unref()
     }
   })
 
-  stream.once('resume', function () {
-    profiler.on('gc', function (info) {
-      gcSample = process.memoryUsage()
-      gcSample.ts = Date.now()
-      gcSample.gc = info.type
+  if (opts.gc) {
+    var profiler = require('gc-profiler')
+
+    stream.once('resume', function () {
+      profiler.on('gc', function (info) {
+        gcSample = process.memoryUsage()
+        if (opts.ts) gcSample.ts = Date.now()
+        gcSample.gc = info.type
+      })
     })
-  })
+  }
 
   return stream
 }
