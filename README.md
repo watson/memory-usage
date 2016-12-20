@@ -9,11 +9,27 @@ You can for instance use the output to graph your memory usage.
 
 ## Installation
 
+For CLI usage:
+
+```
+npm install memory-usage -g
+```
+
+For programmatic usage:
+
 ```
 npm install memory-usage --save
 ```
 
-## Usage Example
+## CLI Usage Example
+
+Use the `memory-usage` command instead of the `node` command:
+
+```
+memory-usage server.js
+```
+
+## Programmatic Usage Example
 
 Sample memory usage every 2 seconds and write it to a CSV file:
 
