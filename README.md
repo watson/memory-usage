@@ -32,6 +32,10 @@ Use the `memory-usage` command instead of the `node` command:
 memory-usage server.js
 ```
 
+The memory usage of `server.js` will now be displayed live in your default web browser:
+
+![chart](https://cloud.githubusercontent.com/assets/10602/20244560/99a7e1e4-a9ca-11e6-809f-0370491106ad.png)
+
 ## Programmatic Usage Example
 
 Sample memory usage every 2 seconds and write it to a CSV file:
