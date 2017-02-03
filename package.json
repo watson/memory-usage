@@ -1,6 +1,6 @@
 {
   "name": "memory-usage",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A readable stream that samples and emits memory usage over time",
   "main": "index.js",
   "bin": "cli.js",
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/watson/memory-usage#readme",
   "coordinates": [
-    55.77759114560804,
-    12.590073809786986
+    55.77755406271424,
+    12.589903826319869
   ]
 }
