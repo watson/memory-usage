@@ -19,13 +19,7 @@ function memoryUsage (opts) {
       next(null, result)
     } else {
       var ms = opts.freq - (Date.now() - lastScheduledSample)
-      setTimeout(function () {
-        var obj = process.memoryUsage()
-        lastScheduledSample = Date.now()
-        if (opts.ts) obj.ts = lastScheduledSample
-        if (opts.gc) obj.gc = null
-        next(null, obj)
-      }, ms).unref()
+      setTimeout(measure, ms, next).unref()
     }
   })
 
@@ -42,4 +36,12 @@ function memoryUsage (opts) {
   }
 
   return stream
+
+  function measure (cb) {
+    var obj = process.memoryUsage()
+    lastScheduledSample = Date.now()
+    if (opts.ts) obj.ts = lastScheduledSample
+    if (opts.gc) obj.gc = null
+    cb(null, obj)
+  }
 }
