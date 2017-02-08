@@ -79,7 +79,7 @@ The stream emits samples in the form of JavaScript objects:
   rss: 4935680,       // Resident set size: Memory assigned to the process in bytes
   heapTotal: 1826816, // V8 heap memory allocated in bytes
   heapUsed: 650472,   // V8 heap memory used in bytes
-  ts: 1479179912921,  // UNIX epoch timestamp for sample in milliseconds (only present if `optsions.ts` is `true`)
+  ts: 1479179912921,  // UNIX epoch timestamp for sample in milliseconds (only present if `options.ts` is `true`)
   gc: null            // Indicates if sample was taken after a garbage collection run (only present if `options.gc` is `true`)
 }
 ```
