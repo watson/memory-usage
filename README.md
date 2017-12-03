@@ -96,4 +96,4 @@ though there's no official indication of a garbage collection run yet.
 
 ## License
 
-MIT
+This program is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
