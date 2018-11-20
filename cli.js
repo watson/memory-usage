@@ -1,18 +1,7 @@
 #!/usr/bin/env node
 'use strict'
 
-var path = require('path')
-var pump = require('pump')
-var chart = require('chart-stream')
-var csvWriter = require('csv-write-stream')
-var opn = require('opn')
-var memoryUsage = require('./')
-
-pump(
-  memoryUsage(2000),
-  csvWriter(),
-  chart(opn)
-)
+require('./register.js')
 
 process.argv.splice(1, 1)
 
