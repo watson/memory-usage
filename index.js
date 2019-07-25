@@ -6,7 +6,7 @@ module.exports = memoryUsage
 
 function memoryUsage (opts) {
   if (!opts) return memoryUsage({})
-  else if (Number.isFinite(opts)) return memoryUsage({freq: opts})
+  else if (Number.isFinite(opts)) return memoryUsage({ freq: opts })
   else if (!opts.freq) opts.freq = 5000
 
   var gcSample = null
