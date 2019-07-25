@@ -31,7 +31,7 @@ test('options.ts', function (t) {
   // ensure tape doesn't end while we wait for memory usage to be sampled
   var dummy = setTimeout(function () {}, 10000)
 
-  var stream = memoryUsage({freq: 50, ts: true})
+  var stream = memoryUsage({ freq: 50, ts: true })
 
   stream.once('data', function (obj) {
     t.ok(obj.rss)
@@ -48,7 +48,7 @@ test('options.gc', function (t) {
   // ensure tape doesn't end while we wait for memory usage to be sampled
   var dummy = setTimeout(function () {}, 10000)
 
-  var stream = memoryUsage({freq: 50, gc: true})
+  var stream = memoryUsage({ freq: 50, gc: true })
 
   stream.once('data', function (obj) {
     t.ok(obj.rss)
